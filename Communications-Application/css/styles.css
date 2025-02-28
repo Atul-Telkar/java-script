@@ -1,0 +1,27 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #fafafa;
+  color: black;
+  border: black;
+  border-style: outset;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 10%;
+  cursor: pointer;
+}
+
+h1,
+h3 {
+  text-align: center;
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>User List</title>
+    <link rel="stylesheet" href="../css/User-list.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#" id="groupChatLink">Group Chat</a></li>
+            <li><a href="#" id="manageUsersLink">Manage Users</a></li>
+            <li><a href="#" id="manageDocumentsLink">Manage Documents</a></li>
+            <li><a href="#" id="logoutLink">Logout</a></li>
+        </ul>
+    </nav>
+    <h1 id="pageTitle">Login Successful</h1>
+    <h5 id="pageSubTitle"></h5>
+    <div id="content" class="d-flex justify-content-center">
+        <table id="userTable" class="table table-striped" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>User Email ID</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="userList">
+                <!-- Users rows will be dynamically added here -->
+            </tbody>
+        </table>
+        <div id="editFormContainer" style="display: none;">
+            <form id="editUserForm" class="text-center">
+                <div class="form-group row">
+                    <label for="fullName" class="col-sm-4 col-form-label text-right">Full Name:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="fullName" name="fullName" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="email" class="col-sm-4 col-form-label text-right">Email:</label>
+                    <div class="col-sm-8">
+                        <input type="email" class="form-control" id="email" name="email" required readonly>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" id="cancelEdit" class="btn btn-secondary">Cancel</button>
+            </form>
+        </div>
+    </div>
+    <div id="DocumentFormContainer" class="d-flex justify-content-center">
+        <table id="documentTable" class="table table-striped" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Label</th>
+                    <th>File Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="documentList">
+                <!-- Document rows will be dynamically added here -->
+            </tbody>
+        </table>
+        <div id="editDocContainer" style="display: none;">
+            <form id="editDocForm" class="text-center">
+                <div class="form-group row">
+                    <label for="fileDescription" class="col-sm-4 col-form-label text-right">File Description</label>
+                    <div class="col-sm-8">
+                        <input type="hidden" id="docId" name="docId">
+                        <input type="text" class="form-control" id="label" name="label" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" id="cancelEditUpload" class="btn btn-secondary">Cancel</button>
+            </form>
+        </div>
+    </div>
+    <div id="DocumentUploadContainer" class="d-flex justify-content-center">
+        <button id="addUploadBtn" class="btn btn-primary mt-3">+ Add Upload</button>
+        <form id="uploadForm" style="display: none;" class="mt-3">
+            <div class="form-group">
+                <label for="documentLabel">File Description</label>
+                <input type="text" class="form-control" id="documentLabel" required>
+            </div>
+            <div class="form-group">
+                <label for="documentFile">File Upload</label>
+                <input type="file" class="form-control" id="documentFile" required>
+            </div>
+            <button type="submit" id="submitUpload" class="btn btn-success">Upload</button>
+            <button type="button" id="cancelUpload" class="btn btn-secondary">Cancel</button>
+        </form>
+    </div>
+    <!-- Group Chat Section -->
+    <div class="container mt-3" id="groupChatContainer">
+        <div id="chatMessages" class="border p-3 mb-3" style="height: 300px; overflow-y: scroll;">
+            <!-- Chat messages will be dynamically added here -->
+        </div>
+        <form id="chatForm">
+            <div class="form-group" style="display: flex; align-items: center;">
+                <p id="printUserName" style="margin-right: 10px; margin-bottom: 0; font-weight: bold;">User</p>
+                <input type="text" class="form-control" id="chatInput" placeholder="Type your message here..." style="flex: 1;">
+            </div>
+            <button type="submit" name="action" value="send" id="sendButton" class="btn btn-primary">Send</button>
+            <button type="button" id="refreshButton" class="btn btn-primary">Refresh</button>
+        </form>
+    </div>
+    <script src="../js/main.js"></script>
+    <script src="../js/users-module.js"></script>
+    <script src="../js/document-module.js"></script>
+    <script src="../js/logout-module.js"></script>
+    <script src="../js/group-module.js"></script>
+    <script src="../js/utils.js"></script>
+</body>
+
+</html>
